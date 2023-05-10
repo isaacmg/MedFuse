@@ -24,7 +24,7 @@ def read_admissions_table(path):
 
     # admits = dataframe_from_csv(path)
     admits = pd.read_csv(path) #header=header, index_col=index_col
-    admits = admits[['subject_id', 'hadm_id', 'admittime', 'dischtime', 'deathtime', 'ethnicity']] # missing DIAGNOSIS
+    admits = admits[['subject_id', 'hadm_id', 'admittime', 'dischtime', 'deathtime', 'race']] # missing DIAGNOSIS
     admits.admittime = pd.to_datetime(admits.admittime)
     admits.dischtime = pd.to_datetime(admits.dischtime)
     admits.deathtime = pd.to_datetime(admits.deathtime)
