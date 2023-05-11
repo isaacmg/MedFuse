@@ -41,10 +41,10 @@ def read_icustays_table(path):
 
 def read_icd_diagnoses_table(path):
 
-    codes = pd.read_csv(f'{path}/d_icd_diagnoses.csv')
+    codes = pd.read_csv(f'{path}/d_icd_diagnoses.csv', )
     # dataframe_from_csv(os.path.join(mimic3_path, 'D_ICD_DIAGNOSES.csv'))
     codes = codes[['icd_code', 'long_title']]
-    diagnoses = pd.read_csv(f'{path}/diagnoses_icd.csv')
+    diagnoses = pd.read_csv(f'{path}/diagnoses_icd.csv',  warn_bad_lines=True, error_bad_lines=False))
     diagnoses = diagnoses.merge(codes, how='inner', left_on='icd_code', right_on='icd_code')
     diagnoses[['subject_id', 'hadm_id', 'seq_num']] = diagnoses[['subject_id', 'hadm_id', 'seq_num']].astype(int)
     return diagnoses
