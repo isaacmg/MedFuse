@@ -51,7 +51,7 @@ def read_icd_diagnoses_table(path):
 
 def read_events_table_by_row(mimic3_path, table):
     nb_rows = {'chartevents': 329499788, 'labevents': 122103667, 'outputevents': 4457381}
-    csv_files = {'chartevents': 'icu/chartevents.csv', 'labevents': 'hosp/labevents.csv', 'outputevents': 'icu/outputevents.csv'}
+    csv_files = {'chartevents': 'chartevents.csv', 'labevents': 'labevents.csv', 'outputevents': 'outputevents.csv'}
     # nb_rows = {'chartevents': 330712484, 'labevents': 27854056, 'outputevents': 4349219}
     reader = csv.DictReader(open(os.path.join(mimic3_path, csv_files[table.lower()]), 'r'))
     for i, row in enumerate(reader):
