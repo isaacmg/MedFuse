@@ -51,7 +51,7 @@ def assemble_episodic_data(stays, diagnoses):
     data = {'Icustay': stays.stay_id, 'Age': stays.age, 'Length of Stay': stays.los,
             'Mortality': stays.mortality}
     data.update(transform_gender(stays.gender))
-    data.update(transform_ethnicity(stays.ethnicity))
+    data.update(transform_ethnicity(stays.race))
     data['Height'] = np.nan
     data['Weight'] = np.nan
     data = DataFrame(data).set_index('Icustay')
